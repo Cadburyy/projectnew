@@ -21,8 +21,8 @@ const Hero = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-8xl font-bold text-center"
                 >
-                    <h1 className="text-[#98B4CE]">Hi, I am</h1>
-                    <h1 className="text-[#E48A57]">John Doe</h1>
+                    <h1 className="text-[#98B4CE]">Hai</h1>
+                    <h1 className="text-[#E48A57]">Motion</h1>
                 </motion.div>
 
                 {/* Floating Icons with Fade-in Animation */}
@@ -47,17 +47,6 @@ const Hero = () => {
                 >
                     <Image src={lighting} height="120" width="120" alt="message" draggable="false" />
                 </motion.div>
-
-                {/* Animated Description */}
-                <motion.p
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-center text-xl max-w-[500px] mx-auto mt-8 text-white/80"
-                >
-                    I am a software developer with a passion for creating innovative and user-friendly applications.
-                </motion.p>
 
                 {/* Animated Profile Picture */}
                 <motion.div

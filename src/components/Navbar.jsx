@@ -9,7 +9,7 @@ const navLinks = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Portofolio", path: "/portofolio" },
-    { title: "Contact Me", path: "/contact-us" },
+    { title: "Contact Us", path: "/contact-us" },
 ];
 
 const Navbar = () => {

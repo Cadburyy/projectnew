@@ -1,19 +1,19 @@
 import About from "@/components/About";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Aboutus from "@/components/Aboutus";
 import Navbar from "@/components/Navbar";
-import Portfolio from "@/components/Portfolio";
-import Location from "@/components/Location";
+
+import Services from "@/components/Services";
+
 import Image from "next/image";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <>
-
-    <Hero/>
-    <Location />
-    <Contact/>
+    <Hero />
+    <Aboutus/>
+    <Services />
 
     </>
   );

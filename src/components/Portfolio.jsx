@@ -63,9 +63,14 @@ const Portfolio = () => {
             {/* Redirect Button to Full Portfolio */}
             <div className="text-center my-12">
                 <Link href="/portfolio">
-                    <button className="bg-orange-400 text-black px-6 py-3 rounded-lg font-semibold text-xl hover:bg-orange-500 transition-all">
-                        See Full Portfolio
-                    </button>
+                <button
+                    className="bg-orange-400 text-white px-6 py-3 rounded-lg font-semibold text-xl 
+                            hover:bg-orange-500 transition-all 
+                            hover:scale-[1.03] active:scale-95 
+                            shadow-md hover:shadow-lg active:shadow-inner"
+                >
+                    See Full Portfolio
+                </button>
                 </Link>
             </div>
         </div>
