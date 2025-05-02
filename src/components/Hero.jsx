@@ -55,7 +55,9 @@ const Hero = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                    <Image src={profilepic} alt="profile picture" className="h-auto w-auto mx-auto" />
+                    <div className="mt-20">
+                    <Image src={profilepic} alt="profile picture" className="w-60 h-auto mx-auto" />
+                    </div>
                 </motion.div>
             </div>
         </div>

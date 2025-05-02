@@ -115,7 +115,7 @@ const About = () => {
         <button
           onClick={() => router.push("/about")}
           className="bg-orange-600 text-white px-6 py-3 text-xl rounded-lg font-semibold
-                     hover:bg-orange-500 transition-all duration-300 shadow-md hover:shadow-lg"
+                    hover:bg-orange-500 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-lg"
         >
           Click for More
         </button>
