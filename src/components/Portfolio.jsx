@@ -4,77 +4,111 @@ import { motion } from "framer-motion";
 import proj2 from "../assets/proj2.jpg";
 import proj3 from "../assets/proj3.png";
 import proj4 from "../assets/proj4.jpg";
-import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const projects = [
-    { title:"Project 1", desc:"Description 1", devstack:"Stack 1", link:"#", git:"#", src: proj2 },
-    { title:"Project 2", desc:"Description 2", devstack:"Stack 2", link:"#", git:"#", src: proj3 },
-    { title:"Project 3", desc:"Description 3", devstack:"Stack 3", link:"#", git:"#", src: proj4 },
+  { title: "Project 1", src: proj2 },
+  { title: "Project 2", src: proj3 },
+  { title: "Project 3", src: proj4 },
 ];
 
 const Portfolio = () => {
-    return (
-        <div className="text-white bg-gradient-to-b from-black to-[#381a5f] py-18 mt-52" id="portfolio">
-            
-            {/* Title with animation */}
-            <motion.div
-                initial={{ opacity: 0, y: 75 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="text-center"
-            >
-                <h1 className="text-white text-6xl w-[320px] mx-auto font-semibold my-12">
-                    Selected <span className="text-orange-400">Projects</span>
-                </h1>
-            </motion.div>
-            
-            {/* Project List */}
-            <div className="px-6 md:px-0 max-w-[1000px] mx-auto mt-40 space-y-24">
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity : 0, y: 75 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.25 }}
-                        className={`mt-12 flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse gap-1" : "md:flex-row"}`}
-                    >
-                        <div className="space-y-2 max-w-[550px]">
-                            <h2 className="text-5xl my-4 text-white/70 font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
-                                {`0${index + 1} `}
-                            </h2>
-                            <h2 className="text-4xl">{project.title}</h2>
-                            <p className="text-lg text-white/70 break-down p-4">{project.desc}</p>
-                            <p className="text-xl text-orange-400 font-semibold">{project.devstack}</p>
-                            <div className="w-64 h-[1px] bg-gray-400 my-4">
-                                <a href={project.link} className="mr-6">Link</a>
-                                <a href={project.git}>Git</a>
-                            </div>
-                        </div>
+  const [selectedProject, setSelectedProject] = useState(null);
+  const router = useRouter();
 
-                        <div className="flex justify-center items-center">
-                            <Image src={project.src} alt={project.title} className="h-[350px] w-[500px] object-cover border rounded border-gray-700" />
-                        </div>
-                    </motion.div>
-                ))}
+  return (
+    <div
+      className="text-white bg-gradient-to-b from-black to-[#381a5f] py-18"
+      id="portfolio"
+    >
+      {/* Section Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className="text-center"
+      >
+        <h1 className="text-white text-6xl w-[320px] mx-auto font-semibold my-12">
+          Selected <span className="text-orange-400">Projects</span>
+        </h1>
+      </motion.div>
+
+      {/* Projects */}
+      <div className="px-6 md:px-0 max-w-[1000px] mx-auto mt-40 space-y-36">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className={`flex flex-col md:flex-row ${
+              index % 2 === 1 ? "md:flex-row-reverse" : ""
+            } items-center gap-12`}
+          >
+            {/* Project Title */}
+            <div
+              className={`text-5xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] w-full md:w-1/2 text-center ${
+                index % 2 === 1 ? "md:text-right" : "md:text-left"
+              }`}
+            >
+              {project.title}
             </div>
-            
-            {/* Redirect Button to Full Portfolio */}
-            <div className="text-center my-12">
-                <Link href="/portfolio">
-                <button
-                    className="bg-orange-400 text-white px-6 py-3 rounded-lg font-semibold text-xl 
-                            hover:bg-orange-500 transition-all 
-                            hover:scale-[1.03] active:scale-95 
-                            shadow-md hover:shadow-lg active:shadow-inner"
-                >
-                    See Full Portfolio
-                </button>
-                </Link>
+
+            {/* Project Image */}
+            <div
+              className="cursor-pointer w-full md:w-1/2 flex justify-center"
+              onClick={() => setSelectedProject(project)}
+            >
+              <Image
+                src={project.src}
+                alt={project.title}
+                className="h-[350px] w-[500px] object-cover border rounded border-gray-700 hover:scale-105 transition-transform duration-300"
+              />
             </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Click for More Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="flex justify-center mt-16"
+      >
+        <button
+          onClick={() => router.push("/portofolio")} // ✅ Correct path
+          className="bg-orange-600 text-white px-6 py-3 text-xl rounded-lg font-semibold
+                    hover:bg-orange-500 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-lg"
+        >
+          Click for More
+        </button>
+      </motion.div>
+
+      {/* Popup Modal */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 flex bg-black/60 justify-center items-center z-50"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-white p-6 rounded-lg max-w-[90%] max-h-[90%] overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedProject.src}
+              alt={selectedProject.title}
+              className="h-[350px] w-[500px] object-cover mx-auto"
+            />
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Portfolio;

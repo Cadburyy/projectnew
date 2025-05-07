@@ -22,7 +22,7 @@ const Hero = () => {
                     className="text-8xl font-bold text-center"
                 >
                     <h1 className="text-[#98B4CE]">Hai</h1>
-                    <h1 className="text-[#E48A57]">Motion</h1>
+                    <h1 className="text-[#FF4500]">Motion</h1>
                 </motion.div>
 
                 {/* Floating Icons with Fade-in Animation */}
