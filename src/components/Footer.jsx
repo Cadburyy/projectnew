@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
 import footerLogo from "../assets/footer.png";
 
 const Footer = () => {
@@ -17,14 +17,11 @@ const Footer = () => {
                 <span className="text-2xl font-bold text-white">Hai Motion</span>
             </div>
 
-            <div className="flex space-x-6 mt-4">
-                <a href="#" className="hover:text-gray-300">
-                    <FaLinkedin size={24} />
-                </a>    
-                <a href="#" className="hover:text-gray-300">
-                    <FaTwitter size={24} />
+            <div className="flex space-x-6 mt-4"> 
+                <a href="https://www.youtube.com/@haimotion7962" target="_blank" className="hover:text-gray-300">
+                    <FaYoutube size={24} />
                 </a>
-                <a href="#" className="hover:text-gray-300">
+                <a href="https://www.instagram.com/haimotion/" target="_blank" className="hover:text-gray-300">
                     <FaInstagram size={24} />
                 </a>
             </div>                   

@@ -110,7 +110,7 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="flex justify-center mt-8"
+        className="flex justify-center mt-8 mb-16"
       >
         <button
           onClick={() => router.push("/about")}

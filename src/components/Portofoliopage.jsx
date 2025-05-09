@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import halodoc from "../assets/halodoc.png";
 import lolica from "../assets/lolica.png";
 import momfest from "../assets/momfest.png";
+import pemkotambon from "../assets/pemkotambon.png";
+import sharp from "../assets/sharp.png";
+import sms from "../assets/sms.jpg";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const projects = [
   {
@@ -23,15 +25,29 @@ const projects = [
     src: momfest,
     description: "An interactive portfolio with smooth animations.",
   },
+  {
+    title: "Pemkot Ambon Project",
+    src: pemkotambon,
+    description: "An interactive portfolio with smooth animations.",
+  },
+  {
+    title: "Sharp Project",
+    src: sharp,
+    description: "An interactive portfolio with smooth animations.",
+  },
+  {
+    title: "Summarecon Serpong Project",
+    src: sms,
+    description: "An interactive portfolio with smooth animations.",
+  },
 ];
 
-const Portfolio = () => {
+const Portfoliopage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const router = useRouter();
 
   return (
     <div
-      className="text-white bg-gradient-to-b from-black to-[#381a5f] py-18"
+      className="text-white bg-gradient-to-b from-black via-[#381a5f] to-black py-18"
       id="portfolio"
     >
       {/* Section Title */}
@@ -43,7 +59,7 @@ const Portfolio = () => {
         className="text-center"
       >
         <h1 className="text-white text-6xl w-[320px] mx-auto font-semibold my-12">
-          Selected <span className="text-orange-400">Projects</span>
+          Motion <span className="text-orange-400">Projects</span>
         </h1>
       </motion.div>
 
@@ -63,7 +79,7 @@ const Portfolio = () => {
             {/* Project Title */}
             <div
               className={`text-5xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] w-full md:w-1/2 text-center ${
-                index % 2 === 1 ? "md:text-right" : "md:text-left"
+                index % 2 === 1 ? "md:text-right" : "md:text- left"
               }`}
             >
               {project.title}
@@ -84,22 +100,6 @@ const Portfolio = () => {
         ))}
       </div>
 
-      {/* Click for More Button */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-        className="flex justify-center mt-16"
-      >
-        <button
-          onClick={() => router.push("/portofolio")}
-          className="bg-orange-600 text-white px-6 py-3 text-xl rounded-lg font-semibold hover:bg-orange-500 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-lg"
-        >
-          Click for More
-        </button>
-      </motion.div>
-
       {/* Popup Modal */}
       {selectedProject && (
         <div
@@ -107,22 +107,17 @@ const Portfolio = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-[#1a1a1a] p-8 rounded-2xl w-[80%] max-w-[880px] h-[88vh] overflow-auto shadow-2xl"
+            className="bg-[#1a1a1a] p-8 rounded-2xl max-w-5xl w-[90%] max-h-[90vh] overflow-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-white text-3xl font-semibold mb-4 text-center">
               {selectedProject.title}
             </h2>
-
-            {/* Image Container with containment */}
-            <div className="w-full h-[600px] flex justify-center items-center">
-              <Image
-                src={selectedProject.src}
-                alt={selectedProject.title}
-                className="max-w-full max-h-full object-contain rounded-lg"
-              />
-            </div>
-
+            <Image
+              src={selectedProject.src}
+              alt={selectedProject.title}
+              className="w-full h-[500px] object-contain rounded-lg"
+            />
             <p className="text-gray-300 mt-6 text-lg text-center">
               {selectedProject.description}
             </p>
@@ -133,4 +128,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Portfoliopage;

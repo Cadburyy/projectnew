@@ -108,7 +108,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
               className="bg-[#f3f4f6] text-black rounded-xl overflow-hidden shadow-lg flex flex-col justify-between mb-8 w-full max-w-[450px]"
-              style={{ minHeight: "700px", maxWidth: "500px" }}
+              style={{ minHeight: "700px", maxWidth: "500px" }}z
             >
               {/* Title */}
               <div className="bg-[#ff7b00] text-white p-6 text-center">
